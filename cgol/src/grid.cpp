@@ -39,7 +39,8 @@ void Grid::draw() {
             // We use the x and y coordinate of the cells top left corner
             // and its width and height are the preset cell size
             // we calculate the coordinates by multiplying the columns position
-            // by the cell size. We subtract one pixel so we can see the gridlines
+            // by the cell size. We subtract one pixel so we can see the
+            // gridlines
             DrawRectangle(c * cell_size, r * cell_size, cell_size - 1,
                           cell_size - 1, color);
         }
@@ -48,9 +49,31 @@ void Grid::draw() {
 
 // Method to set a cells value
 void Grid::set_value(int r, int c, int value) {
-  // Check to make sure we are in bounds
-  if (r >= 0 && r < rows && c >= 0 && c < cols) {
-    // We assign the value at the given point
-    cells[r][c] = value;
-  }
+    // Check to make sure we are in bounds
+    if (is_within_bounds(r, c)) {
+        // We assign the value at the given point
+        cells[r][c] = value;
+    }
 }
+
+// Method to return value from vector of vectors
+int Grid::get_value(int r, int c) { 
+    // We test if our cell is within bounds
+    if (is_within_bounds(r, c)) {
+        // We return the value at the given location
+        return cells[r][c];
+    }
+    return 0; 
+}
+
+// Hlper method to ensure the cell of interest is within bounds
+bool Grid::is_within_bounds(int r, int c) {
+    if (r >= 0 && r < rows && c >= 0 && c < cols) {
+        return true;
+    }
+    return false;
+}
+
+int Grid::get_rows() { return rows; }
+
+int Grid::get_cols() { return cols; }

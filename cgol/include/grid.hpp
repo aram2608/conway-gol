@@ -1,7 +1,7 @@
 #ifndef GRID_HPP
 #define GRID_HPP
 
-#include "raylib.h"
+#include <raylib.h>
 #include <vector>
 
 class Grid {
@@ -13,6 +13,12 @@ class Grid {
     void draw();
     // Method to set dead or alive values
     void set_value(int r, int c, int value);
+    // Method to retrieve a value from the grid
+    int get_value(int r, int c);
+    // Method to check if a cell is within bounds
+    bool is_within_bounds(int r, int c);
+    int get_rows();
+    int get_cols();
 
   private:
     // Integer representation for the number of rows

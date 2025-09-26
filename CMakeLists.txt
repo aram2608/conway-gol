@@ -12,6 +12,7 @@ find_package(glfw3 REQUIRED)
 add_executable(${PROJECT_NAME} 
     cgol/src/main.cpp
     cgol/src/grid.cpp
+    cgol/src/simulation.cpp
 )
 
 target_include_directories(${PROJECT_NAME} PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/cgol/include/)
