@@ -20,6 +20,7 @@ class Grid {
     int get_rows();
     int get_cols();
     void fill_rand();
+    void kill_grid();
 
   private:
     // Integer representation for the number of rows

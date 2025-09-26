@@ -3,7 +3,6 @@
 Simulation::Simulation(int width, int height, int cell_size)
     : grid(width, height, cell_size), tmp_grid(width, height, cell_size) {
     run = SimulationState::OFF;
-    grid.fill_rand();
 }
 
 void Simulation::draw() { grid.draw(); }
@@ -85,11 +84,35 @@ void Simulation::update() {
 // We return the simulation's state
 bool Simulation::is_running() { return run == SimulationState::ON; }
 
+// Simple helper method to start the simulation
 void Simulation::start() { run = SimulationState::ON; }
 
+// Simple helper method to end the simulation
 void Simulation::stop() { run = SimulationState::OFF; }
 
+// Function to kill the grid if the simulaton is not running
+void Simulation::kill_grid() {
+    if (!is_running()) {
+        grid.kill_grid();
+    }
+}
+
+// Function to create a random simulation state
+void Simulation::make_rand_state() {
+    if (!is_running()) {
+        grid.fill_rand();
+    }
+}
+
+// Simple helper method to catch keyboard events
 void Simulation::catch_keyboard() {
-    if(IsKeyPressed(KEY_ENTER)) run = SimulationState::ON;
-    if(IsKeyPressed(KEY_SPACE)) run = SimulationState::OFF;
+    if (IsKeyPressed(KEY_ENTER)) {
+        start();
+    } else if (IsKeyPressed(KEY_SPACE)) {
+        stop();
+    } else if (IsKeyPressed(KEY_R)) {
+        make_rand_state();
+    } else if (IsKeyPressed(KEY_K)) {
+        kill_grid();
+    }
 }

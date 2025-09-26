@@ -10,7 +10,6 @@ int main() {
     Color dark_grey = Color{29, 29, 29, 255};
 
     // Game window //
-    // INITIALIZE FIRST BEFORE LOADING GPU RESOURCES //
     InitWindow(window_w, window_h, "C++ - Game of Life");
 
     // Target FPS of 12

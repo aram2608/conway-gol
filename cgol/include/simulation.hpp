@@ -19,6 +19,8 @@ class Simulation {
     void catch_keyboard();
     void start();
     void stop();
+    void kill_grid();
+    void make_rand_state();
 
   private:
     Grid grid;

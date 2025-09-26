@@ -88,3 +88,13 @@ void Grid::fill_rand() {
         }
     }
 }
+
+// Helper method to clear the grid
+void Grid::kill_grid() {
+    // We iterate over each cell and clear make it dead
+    for (int r = 0; r < rows; ++r) {
+        for (int c = 0; c < cols; ++c) {
+            cells[r][c] = 0;
+        }
+    }
+}
