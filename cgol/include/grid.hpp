@@ -1,6 +1,7 @@
 #ifndef GRID_HPP
 #define GRID_HPP
 
+#include "raylib.h"
 #include <vector>
 
 class Grid {
@@ -8,6 +9,8 @@ class Grid {
     // Constructor for Grid object, we pass in predefined window sizes and cell
     // size
     Grid(int width, int height, int cell_size);
+    // Method to draw cells to screen
+    void draw();
 
   private:
     // Integer representation for the number of rows
