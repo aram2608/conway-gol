@@ -38,10 +38,19 @@ void Grid::draw() {
                 cells[r][c] ? Color{0, 255, 0, 255} : Color{55, 55, 55, 255};
             // We use the x and y coordinate of the cells top left corner
             // and its width and height are the preset cell size
-            // we calculate the coordinates by multiplying the columns position by
-            // the cell size
-            DrawRectangle(c * cell_size, r * cell_size, cell_size, cell_size,
-                          color);
+            // we calculate the coordinates by multiplying the columns position
+            // by the cell size. We subtract one pixel so we can see the gridlines
+            DrawRectangle(c * cell_size, r * cell_size, cell_size - 1,
+                          cell_size - 1, color);
         }
     }
+}
+
+// Method to set a cells value
+void Grid::set_value(int r, int c, int value) {
+  // Check to make sure we are in bounds
+  if (r >= 0 && r < rows && c >= 0 && c < cols) {
+    // We assign the value at the given point
+    cells[r][c] = value;
+  }
 }

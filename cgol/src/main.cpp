@@ -16,6 +16,7 @@ int main() {
     SetTargetFPS(12);
 
     Grid grid{window_w, window_h, cell_size};
+    grid.set_value(0, 0, 1);
 
     // Simulation loop. Runs will the window is not closed
     while (!WindowShouldClose()) {

@@ -11,6 +11,8 @@ class Grid {
     Grid(int width, int height, int cell_size);
     // Method to draw cells to screen
     void draw();
+    // Method to set dead or alive values
+    void set_value(int r, int c, int value);
 
   private:
     // Integer representation for the number of rows
