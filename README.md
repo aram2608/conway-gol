@@ -1,6 +1,14 @@
 # conway-gol
 Conway's Game of Life in Raylib
 
+---
+
+This is a simple Game of Life Implementation using the Raylib graphics library.
+It is mainly a way for me to practice some C++ and explore cellular automata a bit
+since I think they are pretty cool.
+
+![Conway's Game of Life Demo](demo/conways_gol.gif)
+
 # Game of Life Rules
 
 1. A live cell with fewer than two live neighbor cells dies.
