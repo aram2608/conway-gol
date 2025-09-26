@@ -1,7 +1,9 @@
 #include "simulation.hpp"
 
 Simulation::Simulation(int width, int height, int cell_size)
-    : grid(width, height, cell_size) {}
+    : grid(width, height, cell_size), tmp_grid(width, height, cell_size) {
+    grid.fill_rand();
+}
 
 void Simulation::draw() {
     grid.draw();
@@ -37,4 +39,39 @@ int Simulation::count_neighbors(int r, int c) {
         live_neighbors += grid.get_value(neighbor_row, neighbor_col);
     }
     return live_neighbors;
+}
+
+void Simulation::update() {
+    for (int r = 0; r < grid.get_rows(); ++r) {
+        for (int c = 0; c < grid.get_cols(); ++c) {
+            int live_neighbors = count_neighbors(r, c);
+            int cell_value = grid.get_value(r, c);
+
+            // If the cell is alive
+            if (cell_value == 1) {
+                // We test if it has more than 3 neighbors or less than 2
+                if (live_neighbors > 3 || live_neighbors < 2) {
+                    // And kill it
+                    tmp_grid.set_value(r, c, 0);
+                } else {
+                    // Otherwise we leave it alive
+                    // We need this else statement since the tmp grid has no values
+                    tmp_grid.set_value(r, c, 1);
+                }
+            }
+            // Otherwise we assume the cell is dead
+            else {
+                // If it has 3 neighbors we bring it to life
+                if (live_neighbors == 3) {
+                    tmp_grid.set_value(r, c, 1);
+                    // Otherwise it stays dead
+                } else {
+                    tmp_grid.set_value(r, c, 0);
+                }
+            }
+        }
+    }
+    // Now we can copy the values from our temporary grid into the original
+    // This is wicked inefficient but its easy to implement
+    grid = tmp_grid;
 }

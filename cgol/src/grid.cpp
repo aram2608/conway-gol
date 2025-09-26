@@ -77,3 +77,14 @@ bool Grid::is_within_bounds(int r, int c) {
 int Grid::get_rows() { return rows; }
 
 int Grid::get_cols() { return cols; }
+
+// Method to randomly fill cells
+void Grid::fill_rand() {
+    for (int r = 0; r < rows; ++r) {
+        for (int c = 0; c < cols; ++c) {
+            // We assign the cell a randome value
+            int rand_value = GetRandomValue(0, 4);
+            cells[r][c] = (rand_value == 4) ? 1 : 0;
+        }
+    }
+}

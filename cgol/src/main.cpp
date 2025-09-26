@@ -16,15 +16,12 @@ int main() {
     // Target FPS of 12
     SetTargetFPS(12);
     Simulation sim{window_w, window_h, cell_size};
-    sim.set_cell_value(5, 29, 1);
-    sim.set_cell_value(6, 0, 1);
-    sim.set_cell_value(5, 0, 1);
-    sim.set_cell_value(4, 0, 1);
-
-    std::cout << sim.count_neighbors(5, 29) << std::endl;
 
     // Simulation loop. Runs will the window is not closed
     while (!WindowShouldClose()) {
+
+        // We update the simulation prior to drawing
+        sim.update();
 
         // Main logic for drawing to game window
         BeginDrawing();

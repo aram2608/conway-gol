@@ -19,6 +19,7 @@ class Grid {
     bool is_within_bounds(int r, int c);
     int get_rows();
     int get_cols();
+    void fill_rand();
 
   private:
     // Integer representation for the number of rows

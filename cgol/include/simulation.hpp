@@ -12,9 +12,11 @@ class Simulation {
     void draw();
     void set_cell_value(int r, int c, int value);
     int count_neighbors(int r, int c);
+    void update();
 
   private:
     Grid grid;
+    Grid tmp_grid;
 };
 
 #endif
