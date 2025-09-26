@@ -4,6 +4,7 @@ int main() {
     // Hard coded window values
     const int window_w = 750;
     const int window_h = 750;
+    const int cell_size = 25;
     Color dark_green = Color{20, 160, 133, 255};
 
     // Game window //
