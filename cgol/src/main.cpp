@@ -1,6 +1,6 @@
 #include "simulation.hpp"
-#include <raylib.h>
 #include <iostream>
+#include <raylib.h>
 
 int main() {
     // Hard coded window values
@@ -19,6 +19,9 @@ int main() {
 
     // Simulation loop. Runs will the window is not closed
     while (!WindowShouldClose()) {
+
+        // Function to catch keyboard events
+        sim.catch_keyboard();
 
         // We update the simulation prior to drawing
         sim.update();

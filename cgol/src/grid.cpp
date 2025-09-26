@@ -57,13 +57,13 @@ void Grid::set_value(int r, int c, int value) {
 }
 
 // Method to return value from vector of vectors
-int Grid::get_value(int r, int c) { 
+int Grid::get_value(int r, int c) {
     // We test if our cell is within bounds
     if (is_within_bounds(r, c)) {
         // We return the value at the given location
         return cells[r][c];
     }
-    return 0; 
+    return 0;
 }
 
 // Hlper method to ensure the cell of interest is within bounds

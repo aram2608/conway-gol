@@ -4,5 +4,5 @@
 - [x] Create the Grid
 - [x] Count live neighbors
 - [x] Implement simulation rules
-- [] Starting and stopping the simulation
+- [x] Starting and stopping the simulation
 - [] Create custom initial states
